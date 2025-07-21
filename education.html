@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education | Mahesh Dorsala</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #000000;
+      color: #cfd8dc;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .main-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #d3d6db;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #0a0a0a;
+      margin-top: 3.5rem;
+    }
+    .nav-bar {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .nav-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      justify-content: center;
+      background: #151c22;
+      z-index: 100;
+      padding: 1.2rem 0 0.7rem 0;
+      box-shadow: 0 2px 8px 0 #0002;
+    }
+    .page-container { margin-top: 4.5rem; }
+    .nav-bar a {
+      color: #cfd8dc;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 500;
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-bottom 0.2s;
+    }
+    .nav-bar a.active, .nav-bar a:hover {
+      color: #ff9800;
+      border-bottom: 2px solid #ff9800;
+    }
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: #23272e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #cfd8dc;
+      font-size: 1.3rem;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .social-icon:hover {
+      background: #ff9800;
+      color: #fff;
+    }
+    .section-content {
+      background: #181f25;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 2px 8px 0 #0002;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+    /* Timeline styles */
+    .timeline {
+      position: relative;
+      margin: 3rem auto 3rem auto;
+      padding: 2rem 0;
+      width: 100%;
+      max-width: 900px;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #42f5e3 0%, #282c34 100%);
+      z-index: 0;
+      border-radius: 2px;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      min-height: 120px;
+    }
+    .timeline-center {
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .timeline-dot {
+      width: 18px;
+      height: 18px;
+      background: #42f5e3;
+      border-radius: 50%;
+      margin: 0 auto;
+      border: 3px solid #000;
+      z-index: 3;
+    }
+    .timeline-date {
+      color: #42f5e3;
+      font-size: 1.08em;
+      font-weight: 600;
+      margin-bottom: 0.3em;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      white-space: nowrap;
+      text-align: left;
+      display: block;
+    }
+    .timeline-content {
+      background: none;
+      color: #fff;
+      padding: 0;
+      border-radius: 10px;
+      text-align: left;
+      box-shadow: none;
+      margin: 0;
+      font-size: 1.08em;
+    }
+    .timeline-item.right .timeline-content {
+      text-align: right;
+    }
+    .timeline-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: none;
+      z-index: 2;
+      margin: 0 auto;
+    }
+    .timeline-img img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: none;
+      border: none;
+    }
+    .timeline-img.sbu, .timeline-img.sling {
+      width: 65px;
+      height: 65px;
+    }
+    .timeline-img.sbu img, .timeline-img.sling img {
+      width: 55px;
+      height: 55px;
+    }
+    @media (max-width: 700px) {
+      .main-title { font-size: 1.5rem; }
+      .nav-bar { gap: 1rem; font-size: 1rem; }
+      .page-container { padding: 1.5rem; }
+      .section-content { padding: 1rem 0.5rem; }
+      .timeline { max-width: 98vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <nav class="nav-bar nav-top">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="education.html" class="active">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="main-title">Education</div>
+    <div class="section-content">
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-item left">
+          <div class="timeline-img sbu"><img src="SBU.jpeg" alt="Stony Brook University"></div>
+          <div class="timeline-center">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-date">Jan 2025 – Dec 2026</span>
+            <b>Stony Brook University</b><br>
+            MS in Computer Science<br>
+            <small>GPA: 4.0/4.0 | Courses: Algorithms, NLP, Probability, Distributed Systems</small>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <span class="timeline-date">Aug 2018 – Jul 2022</span>
+            <b>PES University</b><br>
+            Bachelors in Computer Science<br>
+            <small>Grade: A | Research in Vision and NLP</small>
+          </div>
+          <div class="timeline-center">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-img"><img src="PESU.png" alt="PES University"></div>
+        </div>
+      </div>
+    </div>
+    <div class="social-icons">
+      <a class="social-icon" href="https://www.linkedin.com/in/mahesh-dorsala-652790195/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a class="social-icon" href="https://github.com/dors20" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a class="social-icon" href="mailto:mahesh.dorsala@gmail.com" title="Gmail"><i class="fab fa-google"></i></a>
+    </div>
+  </div>
+</body>
+</html> 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahesh Dorsala | Portfolio</title>
+  <title>Skills | Mahesh Dorsala</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -19,26 +19,40 @@
       justify-content: center;
       align-items: center;
     }
-    .home-container {
+    .page-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
     }
     .main-title {
-      font-size: 3rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: #d3d6db;
       margin-bottom: 1.2rem;
       letter-spacing: 1px;
       text-shadow: 0 2px 8px #0a0a0a;
+      margin-top: 3.5rem;
     }
     .nav-bar {
       display: flex;
       gap: 2rem;
       margin-bottom: 2.5rem;
     }
+    .nav-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      justify-content: center;
+      background: #151c22;
+      z-index: 100;
+      padding: 1.2rem 0 0.7rem 0;
+      box-shadow: 0 2px 8px 0 #0002;
+    }
+    .page-container { margin-top: 4.5rem; }
     .nav-bar a {
       color: #cfd8dc;
       text-decoration: none;
@@ -74,26 +88,68 @@
       background: #ff9800;
       color: #fff;
     }
+    .section-content {
+      background: #181f25;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 2px 8px 0 #0002;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7em 1.2em;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .skills-list li {
+      background: #23272e;
+      color: #42f5e3;
+      border-radius: 6px;
+      padding: 0.4em 1em;
+      font-size: 1em;
+      font-weight: 500;
+    }
     @media (max-width: 700px) {
-      .main-title { font-size: 2rem; }
+      .main-title { font-size: 1.5rem; }
       .nav-bar { gap: 1rem; font-size: 1rem; }
-      .home-container { padding: 1.5rem; }
+      .page-container { padding: 1.5rem; }
+      .section-content { padding: 1rem 0.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="home-container">
-    <div class="main-title">Mahesh Dorsala</div>
-    <nav class="nav-bar">
-      <a href="index.html" class="active">Home</a>
+  <div class="page-container">
+    <nav class="nav-bar nav-top">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="education.html">Education</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html">Projects</a>
-      <a href="skills.html">Skills</a>
+      <a href="skills.html" class="active">Skills</a>
       <a href="resume.html">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <div class="main-title">Skills</div>
+    <div class="section-content">
+      <ul class="skills-list">
+        <li>Algorithms</li>
+        <li>Natural Language Processing (NLP)</li>
+        <li>Linux</li>
+        <li>Python</li>
+        <li>Go</li>
+        <li>Live Video Streaming</li>
+        <li>Big Data</li>
+        <li>Parallel Algorithms</li>
+        <li>Deep Learning</li>
+        <li>Number Theory</li>
+        <li>Video</li>
+        <li>Data Analytics</li>
+        <li>Computer Networking</li>
+      </ul>
+    </div>
     <div class="social-icons">
       <a class="social-icon" href="https://www.linkedin.com/in/mahesh-dorsala-652790195/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       <a class="social-icon" href="https://github.com/dors20" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
@@ -101,4 +157,4 @@
     </div>
   </div>
 </body>
-</html>
+</html> 
