@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahesh Dorsala | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #000000;
+      color: #fff;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
+    }
+    header {
+      padding: 3rem 2rem 2rem 2rem;
+      text-align: center;
+      background: transparent;
+      border-bottom: none;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #42f5e3;
+      text-shadow: 0 2px 8px #0a0a0a;
+    }
+    header h2 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #e0e0e0;
+      margin: 0 0 1.5rem 0;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    section {
+      margin-bottom: 2.5rem;
+      background: transparent;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 2px 8px 0 #0002;
+    }
+    section h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #42f5e3;
+      text-shadow: 0 2px 8px #0a0a0a;
+      font-weight: 700;
+    }
+    ul, ol {
+      padding-left: 1.2em;
+    }
+    .contact-links a {
+      color: #42f5e3;
+      margin-right: 1.2em;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .contact-links a:hover {
+      color: #fff;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7em 1.2em;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .skills-list li {
+      background: #23272e;
+      color: #42f5e3;
+      border-radius: 6px;
+      padding: 0.4em 1em;
+      font-size: 1em;
+      font-weight: 500;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 200px;
+      background: #000000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      z-index: 100;
+      border-right: 2px solid #282c34;
+      box-shadow: none;
+    }
+    .sidebar nav {
+      width: 100%;
+    }
+    .sidebar a {
+      display: block;
+      width: 100%;
+      padding: 1rem 2rem;
+      color: #bfbfbf;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background: #23272e;
+      color: #42f5e3;
+    }
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin-left: 200px;
+      background: #000000;
+    }
+    @media (max-width: 800px) {
+      .sidebar { display: none; }
+      .main-content { margin-left: 0; }
+    }
+    /* Timeline styles */
+    .timeline {
+      position: relative;
+      margin: 3rem auto 3rem auto;
+      padding: 2rem 0;
+      width: 100%;
+      max-width: 900px;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #42f5e3 0%, #282c34 100%);
+      z-index: 0;
+      border-radius: 2px;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      min-height: 120px;
+    }
+    .timeline-center {
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .timeline-dot {
+      width: 18px;
+      height: 18px;
+      background: #42f5e3;
+      border-radius: 50%;
+      margin: 0 auto;
+      border: 3px solid #000;
+      z-index: 3;
+    }
+    .timeline-date {
+      color: #42f5e3;
+      font-size: 1.08em;
+      font-weight: 600;
+      margin-bottom: 0.3em;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      white-space: nowrap;
+      text-align: left;
+      display: block;
+    }
+    .timeline-content {
+      background: none;
+      color: #fff;
+      padding: 0;
+      border-radius: 10px;
+      text-align: left;
+      box-shadow: none;
+      margin: 0;
+      font-size: 1.08em;
+    }
+    .timeline-item.right .timeline-content {
+      text-align: right;
+    }
+    .timeline-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: none;
+      z-index: 2;
+      margin: 0 auto;
+    }
+    .timeline-img img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: none;
+      border: none;
+    }
+    .timeline-img.sbu, .timeline-img.sling {
+      width: 65px;
+      height: 65px;
+    }
+    .timeline-img.sbu img, .timeline-img.sling img {
+      width: 55px;
+      height: 55px;
+    }
+    @media (max-width: 800px) {
+      .timeline {
+        max-width: 98vw;
+      }
+      .timeline-item {
+        flex-direction: column;
+        min-height: 0;
+      }
+      .timeline-col-img, .timeline-date, .timeline-content {
+        width: 100%;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .timeline-date span { margin: 0; }
+    }
+    .timeline-item.right .timeline-date {
+      text-align: right;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="main-content">
+    <header>
+      <h1>Mahesh Dorsala</h1>
+      <h2>MSCS - Research at Stony Brook | Ex - Backend Developer at Dish Networks</h2>
+      <p>HPC at Dell | Go, Video Streaming, Python, Systems, NLP, ML | CSE Grad</p>
+      <div class="contact-links">
+        <a href="mailto:mahesh.dorsala@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/mahesh-dorsala-652790195/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/dors20" target="_blank">GitHub</a>
+        <a href="mahesh-dorsala.pdf" target="_blank">Resume</a>
+      </div>
+    </header>
+    <div class="container">
+      <section id="about">
+        <h3>About</h3>
+        <p>DISH Network empowered the development of scalable backend solutions, focusing on streaming services, leveraging expertise in Go and Python. Collaborated with teams to maintain high-performance systems, ensuring seamless user experiences. Contributed to data-driven decision-making through analytics integration.</p>
+        <p>Stony Brook University studies complement a foundation in Computer Science from PES University. Combining academic rigor with industry experience, the goal is to design systems that balance scalability and performance. Dedicated to building solutions that drive operational excellence in technology-driven environments.</p>
+      </section>
+      <section id="experience">
+        <h3>Experience</h3>
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-item left">
+            <div class="timeline-img"><img src="Dish.jpeg" alt="DISH Network"></div>
+            <div class="timeline-center">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content">
+              <span class="timeline-date">Jun 2022 – Dec 2024</span>
+              <b>Software Engineer</b><br>
+              DISH Network<br>
+              <small>Bengaluru, India | Go, Linux, Video Streaming</small>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <span class="timeline-date">Jan 2022 – Jun 2022</span>
+              <b>Intern</b><br>
+              Sling TV<br>
+              <small>Bangalore, India</small>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-img sling"><img src="Sling.jpeg" alt="Sling TV"></div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-img"><img src="Dell.png" alt="Dell Technologies"></div>
+            <div class="timeline-center">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content">
+              <span class="timeline-date">May 2021 – Aug 2021</span>
+              <b>Intern</b><br>
+              Dell Technologies<br>
+              <small>Bangalore, India</small>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="education">
+        <h3>Education</h3>
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-item left">
+            <div class="timeline-img sbu"><img src="SBU.jpeg" alt="Stony Brook University"></div>
+            <div class="timeline-center">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content">
+              <span class="timeline-date">Jan 2025 – Dec 2026</span>
+              <b>Stony Brook University</b><br>
+              MS in Computer Science<br>
+              <small>GPA: 4.0/4.0 | Courses: Algorithms, NLP, Probability, Distributed Systems</small>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <span class="timeline-date">Aug 2018 – Jul 2022</span>
+              <b>PES University</b><br>
+              Bachelors in Computer Science<br>
+              <small>Grade: A | Research in Vision and NLP</small>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-img"><img src="PESU.png" alt="PES University"></div>
+          </div>
+        </div>
+      </section>
+      <section id="skills">
+        <h3>Skills</h3>
+        <ul class="skills-list">
+          <li>Algorithms</li>
+          <li>Natural Language Processing (NLP)</li>
+          <li>Linux</li>
+          <li>Python</li>
+          <li>Go</li>
+          <li>Live Video Streaming</li>
+          <li>Big Data</li>
+          <li>Parallel Algorithms</li>
+          <li>Deep Learning</li>
+          <li>Number Theory</li>
+          <li>Video</li>
+          <li>Data Analytics</li>
+          <li>Computer Networking</li>
+        </ul>
+      </section>
+      <section id="publications">
+        <h3>Publications</h3>
+        <ul>
+          <li><b>TTF-ST: Diversified Text to Face Image Generation Using Best-Match Search and Latent Vector Transformation</b><br>
+            <small>International conference on Image and Vision Computing New Zealand, LNCS, Springer · Feb 4, 2023</small><br>
+            <a href="https://link.springer.com/chapter/10.1007/978-3-031-25825-1_30" target="_blank">Show publication</a>
+          </li>
+        </ul>
+      </section>
+      <section id="projects">
+        <h3>Projects</h3>
+        <ul>
+          <li><a href="https://github.com/dors20/YACS-Yet-Another-Centralised-Scheduler-BigData" target="_blank">YACS: Yet Another Centralised Scheduler for Big Data</a></li>
+          <li><a href="https://github.com/dors20/Transformers-Assign" target="_blank">Transformers Assignment</a></li>
+          <li>More coming soon...</li>
+        </ul>
+      </section>
+      <section id="contact">
+        <h3>Contact</h3>
+        <p>Feel free to reach out via <a href="mailto:mahesh.dorsala@gmail.com">email</a> or connect on <a href="https://www.linkedin.com/in/mahesh-dorsala-652790195/" target="_blank">LinkedIn</a>.</p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
