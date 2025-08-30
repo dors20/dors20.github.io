@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skills | Mahesh Dorsala</title>
+  <title>Research | Mahesh Dorsala</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -16,7 +16,6 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
     }
     .page-container {
@@ -97,27 +96,11 @@
     }
     .section-content {
       background: transparent !important;
+      box-shadow: none !important;
       border-radius: 12px;
       padding: 2rem 1.5rem;
-      box-shadow: none !important;
       margin-bottom: 2rem;
       width: 100%;
-    }
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7em 1.2em;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .skills-list li {
-      background: #23272e;
-      color: #42f5e3;
-      border-radius: 6px;
-      padding: 0.4em 1em;
-      font-size: 1em;
-      font-weight: 500;
     }
     /* Hamburger styles */
     .hamburger {
@@ -174,12 +157,6 @@
     .mobile-nav-links a.active, .mobile-nav-links a:hover {
       color: #ff9800;
     }
-    @media (max-width: 700px) {
-      .main-title { font-size: 1.5rem; }
-      .nav-bar { gap: 1rem; font-size: 1rem; }
-      .page-container { padding: 1.5rem; }
-      .section-content { padding: 1rem 0.5rem; }
-    }
     @media (max-width: 900px) {
       .nav-bar {
         display: none !important;
@@ -188,6 +165,12 @@
         display: flex;
       }
     }
+    @media (max-width: 700px) {
+      .main-title { font-size: 1.5rem; }
+      .nav-bar { gap: 1rem; font-size: 1rem; }
+      .page-container { padding: 1.5rem; }
+      .section-content { padding: 1rem 0.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -195,11 +178,11 @@
     <nav class="nav-bar nav-top">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-        <a href="research.html">Research</a>
+        <a href="research.html" class="active">Research</a>
       <a href="education.html">Education</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html">Projects</a>
-      <a href="skills.html" class="active">Skills</a>
+      <a href="skills.html">Skills</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
@@ -211,31 +194,26 @@
       <div class="mobile-nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="research.html">Research</a>
+        <a href="research.html" class="active">Research</a>
         <a href="education.html">Education</a>
         <a href="experience.html">Experience</a>
         <a href="projects.html">Projects</a>
-        <a href="skills.html" class="active">Skills</a>
-      <a href="contact.html">Contact</a>
+        <a href="skills.html">Skills</a>
       </div>
     </div>
-    <div class="main-title">Skills</div>
+    <div class="main-title">Research</div>
     <div class="section-content">
-      <ul class="skills-list">
-        <li>Algorithms</li>
-        <li>Natural Language Processing (NLP)</li>
-        <li>Linux</li>
-        <li>Python</li>
-        <li>Go</li>
-        <li>Live Video Streaming</li>
-        <li>Big Data</li>
-        <li>Parallel Algorithms</li>
-        <li>Deep Learning</li>
-        <li>Number Theory</li>
-        <li>Video</li>
-        <li>Data Analytics</li>
-        <li>Computer Networking</li>
-      </ul>
+      <p style="margin-bottom: 1.5rem; line-height: 1.6;">My research interests are at the intersection of Algorithms, Distributed Systems, and Artificial Intelligence. I focus on building efficient, resilient, and intelligent systems.</p>
+      
+      <h3 style="color: #ff9800; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; margin-top: 2rem;">Master's Thesis: Frontiers of LLM Reasoning</h3>
+      <p style="margin-bottom: 1.5rem; line-height: 1.6;">Under the supervision of Professor <a href="https://www3.cs.stonybrook.edu/~rezaul/" target="_blank" style="color: #ff9800; text-decoration: none;">Rezaul Chowdhury</a> at the Theoretical and Experimental Algorithmics Lab, my thesis investigates the logical reasoning capabilities of Large Language Models (LLMs).</p>
+      <p style="margin-bottom: 1.5rem; line-height: 1.6;">My research aims to identify the "frontier" of algorithmic problems that remain challenging for LLMs due to their probabilistic nature, comparing their performance directly against human problem-solving strategies. The project involves a multi-faceted approach, including inference optimization, model fine-tuning, developing graph-based retrieval systems, and designing advanced prompting strategies. A key contribution of this work is the creation of a custom autograder to systematically benchmark and evaluate the reasoning flows of various models.</p>
+      
+      <h3 style="color: #ff9800; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; margin-top: 2rem;">Carbon-Aware Cloud Computing</h3>
+      <p style="margin-bottom: 1.5rem; line-height: 1.6;">As a researcher at <a href="https://www.pace.cs.stonybrook.edu/" target="_blank" style="color: #ff9800; text-decoration: none;">Pace Lab</a>, I am developing a Linux tool that computes the carbon consumption of individual jobs in cloud data centers. This tool provides crucial data for creating intelligent, carbon-aware scheduling policies, helping cloud providers enhance hardware longevity and reduce their environmental impact.</p>
+      
+      <h3 style="color: #ff9800; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; margin-top: 2rem;">Fault-Tolerant Distributed Databases</h3>
+      <p style="margin-bottom: 1.5rem; line-height: 1.6;">I am engineering a modern, fault-tolerant fork of MySQL by implementing the Raft and Practical Byzantine Fault Tolerance (PBFT) consensus algorithms. This work enhances the database's resilience and performance, making it suitable for robust, large-scale distributed applications.</p>
     </div>
     <div class="social-icons">
       <a class="social-icon" href="https://www.linkedin.com/in/mahesh-dorsala-652790195/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -261,4 +239,4 @@
   });
 </script>
 </body>
-</html> 
+</html>

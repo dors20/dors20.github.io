@@ -27,6 +27,9 @@
       max-width: 700px;
       margin: 0 auto;
     }
+    .header-bar {
+      background: transparent !important;
+    }
     .main-title {
       font-size: 2.2rem;
       font-weight: 700;
@@ -39,6 +42,10 @@
     .nav-bar {
       display: flex;
       gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      background: transparent !important;
+      box-shadow: none !important;
       margin-bottom: 2.5rem;
     }
     .nav-top {
@@ -89,12 +96,75 @@
       color: #fff;
     }
     .section-content {
-      background: #181f25;
+      background: transparent !important;
+      box-shadow: none !important;
       border-radius: 12px;
       padding: 2rem 1.5rem;
-      box-shadow: 0 2px 8px 0 #0002;
       margin-bottom: 2rem;
       width: 100%;
+    }
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 4px;
+      margin: 4px 0;
+      background: #fff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    /* Overlay menu */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.98);
+      z-index: 150;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+    }
+    .mobile-nav-overlay.open {
+      display: flex;
+    }
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+    .mobile-nav-links a {
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+    .mobile-nav-links a.active, .mobile-nav-links a:hover {
+      color: #ff9800;
+    }
+    @media (max-width: 900px) {
+      .nav-bar {
+        display: none !important;
+      }
+      .hamburger {
+        display: flex;
+      }
     }
     @media (max-width: 700px) {
       .main-title { font-size: 1.5rem; }
@@ -109,13 +179,30 @@
     <nav class="nav-bar nav-top">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
+        <a href="research.html">Research</a>
       <a href="education.html">Education</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html" class="active">Projects</a>
       <a href="skills.html">Skills</a>
-      <a href="resume.html">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="mobile-nav-overlay" id="mobile-nav">
+      <div class="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      </div>
+    </div>
     <div class="main-title">Projects</div>
     <div class="section-content">
       <ul>
@@ -130,5 +217,22 @@
       <a class="social-icon" href="mailto:mahesh.dorsala@gmail.com" title="Gmail"><i class="fab fa-google"></i></a>
     </div>
   </div>
+<script>
+  const hamburger = document.getElementById('hamburger-menu');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+  // Close menu when clicking a link or outside
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav || e.target.tagName === 'A') {
+      mobileNav.classList.remove('open');
+    }
+  });
+  // Optional: close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') mobileNav.classList.remove('open');
+  });
+</script>
 </body>
 </html> 

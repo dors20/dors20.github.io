@@ -35,10 +35,17 @@
       text-shadow: 0 2px 8px #0a0a0a;
       margin-top: 3.5rem;
     }
+    .header-bar {
+      background: transparent !important;
+    }
     .nav-bar {
       display: flex;
       gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      background: transparent !important;
       margin-bottom: 2.5rem;
+      box-shadow: none !important;
     }
     .nav-top {
       position: fixed;
@@ -88,10 +95,10 @@
       color: #fff;
     }
     .section-content {
-      background: #181f25;
+      background: transparent;
       border-radius: 12px;
       padding: 2rem 1.5rem;
-      box-shadow: 0 2px 8px 0 #0002;
+      box-shadow: none;
       margin-bottom: 2rem;
       width: 100%;
     }
@@ -115,84 +122,108 @@
       border-radius: 2px;
     }
     .timeline-item {
-      display: grid;
-      grid-template-columns: 1fr 60px 1fr;
+      display: flex;
       align-items: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
       position: relative;
       z-index: 1;
       min-height: 120px;
     }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 18px;
+      height: 18px;
+      background: #42f5e3;
+      border-radius: 50%;
+      border: 3px solid #000;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+    }
+    .timeline-content {
+      flex: 1;
+      background: none;
+      color: #fff;
+      padding: 0;
+      border-radius: 10px;
+      text-align: right;
+      box-shadow: none;
+      margin: 0;
+      font-size: 1.08em;
+      padding-right: 2rem;
+    }
+    .timeline-item.right .timeline-content {
+      text-align: left;
+      padding-right: 0;
+      padding-left: 2rem;
+    }
     .timeline-center {
-      grid-column: 2;
+      width: 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       z-index: 2;
+      flex-shrink: 0;
+      position: relative;
+      margin: 0 auto;
     }
     .timeline-dot {
       width: 18px;
       height: 18px;
       background: #42f5e3;
       border-radius: 50%;
-      margin: 0 auto;
       border: 3px solid #000;
       z-index: 3;
-    }
-    .timeline-date {
-      color: #42f5e3;
-      font-size: 1.08em;
-      font-weight: 600;
-      margin-bottom: 0.3em;
-      background: none;
-      border: none;
-      box-shadow: none;
-      padding: 0;
-      white-space: nowrap;
-      text-align: left;
-      display: block;
-    }
-    .timeline-content {
-      background: none;
-      color: #fff;
-      padding: 0;
-      border-radius: 10px;
-      text-align: left;
-      box-shadow: none;
-      margin: 0;
-      font-size: 1.08em;
-    }
-    .timeline-item.right .timeline-content {
-      text-align: right;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin-left: 0;
     }
     .timeline-img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
+      flex: 1;
+      width: 140px;
+      height: 120px;
       background: none;
+      border-radius: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: none;
       z-index: 2;
-      margin: 0 auto;
+      border: none;
     }
     .timeline-img img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 50%;
+      width: 140px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 0;
       background: none;
       border: none;
     }
-    .timeline-img.sbu, .timeline-img.sling {
-      width: 65px;
-      height: 65px;
+    .timeline-item.right {
+      flex-direction: row-reverse;
     }
-    .timeline-img.sbu img, .timeline-img.sling img {
-      width: 55px;
-      height: 55px;
+    @media (max-width: 900px) {
+      .timeline-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+      }
+      .timeline-center {
+        grid-column: 1;
+        order: 2;
+      }
+      .timeline-content {
+        text-align: center !important;
+        order: 1;
+      }
+      .timeline-img {
+        order: 3;
+      }
     }
     @media (max-width: 700px) {
       .main-title { font-size: 1.5rem; }
@@ -201,6 +232,69 @@
       .section-content { padding: 1rem 0.5rem; }
       .timeline { max-width: 98vw; }
     }
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 4px;
+      margin: 4px 0;
+      background: #fff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    /* Overlay menu */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.98);
+      z-index: 150;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+    }
+    .mobile-nav-overlay.open {
+      display: flex;
+    }
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+    .mobile-nav-links a {
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+    .mobile-nav-links a.active, .mobile-nav-links a:hover {
+      color: #ff9800;
+    }
+    @media (max-width: 900px) {
+      .nav-bar {
+        display: none !important;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
@@ -208,52 +302,66 @@
     <nav class="nav-bar nav-top">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
+      <a href="research.html">Research</a>
       <a href="education.html">Education</a>
       <a href="experience.html" class="active">Experience</a>
       <a href="projects.html">Projects</a>
       <a href="skills.html">Skills</a>
-      <a href="resume.html">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="mobile-nav-overlay" id="mobile-nav">
+      <div class="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html" class="active">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
     <div class="main-title">Experience</div>
     <div class="section-content">
       <div class="timeline">
         <div class="timeline-line"></div>
         <div class="timeline-item left">
-          <div class="timeline-img"><img src="Dish.jpeg" alt="DISH Network"></div>
-          <div class="timeline-center">
-            <div class="timeline-dot"></div>
-          </div>
           <div class="timeline-content">
-            <span class="timeline-date">Jun 2022 – Dec 2024</span>
+            <b style="color: #42f5e3; font-size: 1.15em; display: inline-block; margin-bottom: 0.5em;">Jun 2022 – Dec 2024</b><br>
             <b>Software Engineer</b><br>
             DISH Network<br>
             <small>Bengaluru, India | Go, Linux, Video Streaming</small>
           </div>
+          <div class="timeline-center">
+          </div>
+          <div class="timeline-img"><img src="Dish.jpeg" alt="DISH Network"></div>
         </div>
         <div class="timeline-item right">
           <div class="timeline-content">
-            <span class="timeline-date">Jan 2022 – Jun 2022</span>
+            <b style="color: #42f5e3; font-size: 1.15em; display: inline-block; margin-bottom: 0.5em;">Jan 2022 – Jun 2022</b><br>
             <b>Intern</b><br>
             Sling TV<br>
             <small>Bangalore, India</small>
           </div>
           <div class="timeline-center">
-            <div class="timeline-dot"></div>
           </div>
-          <div class="timeline-img sling"><img src="Sling.jpeg" alt="Sling TV"></div>
+          <div class="timeline-img"><img src="Sling.jpeg" alt="Sling TV"></div>
         </div>
         <div class="timeline-item left">
-          <div class="timeline-img"><img src="Dell.png" alt="Dell Technologies"></div>
-          <div class="timeline-center">
-            <div class="timeline-dot"></div>
-          </div>
           <div class="timeline-content">
-            <span class="timeline-date">May 2021 – Aug 2021</span>
+            <b style="color: #42f5e3; font-size: 1.15em; display: inline-block; margin-bottom: 0.5em;">May 2021 – Aug 2021</b><br>
             <b>Intern</b><br>
             Dell Technologies<br>
             <small>Bangalore, India</small>
           </div>
+          <div class="timeline-center">
+          </div>
+          <div class="timeline-img"><img src="Dell.png" alt="Dell Technologies"></div>
         </div>
       </div>
     </div>
@@ -263,5 +371,22 @@
       <a class="social-icon" href="mailto:mahesh.dorsala@gmail.com" title="Gmail"><i class="fab fa-google"></i></a>
     </div>
   </div>
+<script>
+  const hamburger = document.getElementById('hamburger-menu');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+  // Close menu when clicking a link or outside
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav || e.target.tagName === 'A') {
+      mobileNav.classList.remove('open');
+    }
+  });
+  // Optional: close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') mobileNav.classList.remove('open');
+  });
+</script>
 </body>
-</html> 
+</html>

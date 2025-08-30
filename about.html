@@ -153,6 +153,61 @@
     .interest-card[data-interest="Natural Language Processing"] .icon { color: #e91e63; }
     .interest-card[data-interest="Algorithms"] .icon { color: #ff9800; }
     .interest-card[data-interest="HPC"] .icon { color: #9c27b0; }
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 4px;
+      margin: 4px 0;
+      background: #fff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    /* Overlay menu */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.98);
+      z-index: 150;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+    }
+    .mobile-nav-overlay.open {
+      display: flex;
+    }
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+    .mobile-nav-links a {
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+    .mobile-nav-links a.active, .mobile-nav-links a:hover {
+      color: #ff9800;
+    }
     @media (max-width: 1100px) {
       .about-main, .interests-grid { max-width: 98vw; }
       .about-main { flex-direction: column; align-items: center; }
@@ -168,6 +223,14 @@
       .about-content { padding: 1rem 0.7rem; font-size: 1rem; }
       .interests-grid { grid-template-columns: 1fr; justify-content: center; }
     }
+    @media (max-width: 900px) {
+      .nav-bar {
+        display: none !important;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
@@ -176,13 +239,30 @@
     <nav class="nav-bar nav-top">
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About</a>
+      <a href="research.html">Research</a>
       <a href="education.html">Education</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html">Projects</a>
       <a href="skills.html">Skills</a>
-      <a href="resume.html">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="mobile-nav-overlay" id="mobile-nav">
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="research.html">Research</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
   <div class="about-main">
     <div class="about-photo">
@@ -196,8 +276,7 @@
       </div>
     </div>
   </div>
-  <div class="section-label">Interests</div>
-  <div class="interests-grid">
+  <div class="section-label">Interests</div>  <div class="interests-grid">
     <div class="interest-card" data-interest="Software Engineering"><span class="icon"><i class="fas fa-code"></i></span>Software Engineering</div>
     <div class="interest-card" data-interest="Machine Learning"><span class="icon"><i class="fas fa-robot"></i></span>Machine Learning</div>
     <div class="interest-card" data-interest="Distributed Systems"><span class="icon"><i class="fas fa-network-wired"></i></span>Distributed Systems</div>
@@ -212,5 +291,22 @@
     <a class="social-icon" href="https://github.com/dors20" target="_blank" title="GitHub" style="background:#23272e;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#cfd8dc;font-size:1.3rem;transition:background 0.2s,color 0.2s;text-decoration:none;"><i class="fab fa-github"></i></a>
     <a class="social-icon" href="mailto:mahesh.dorsala@gmail.com" title="Gmail" style="background:#23272e;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#cfd8dc;font-size:1.3rem;transition:background 0.2s,color 0.2s;text-decoration:none;"><i class="fab fa-google"></i></a>
   </div>
+<script>
+  const hamburger = document.getElementById('hamburger-menu');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+  // Close menu when clicking a link or outside
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav || e.target.tagName === 'A') {
+      mobileNav.classList.remove('open');
+    }
+  });
+  // Optional: close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') mobileNav.classList.remove('open');
+  });
+</script>
 </body>
 </html> 
