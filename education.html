@@ -23,7 +23,7 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      max-width: 900px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     .main-title {
@@ -108,7 +108,7 @@
       margin: 3rem auto 3rem auto;
       padding: 2rem 0;
       width: 100%;
-      max-width: 900px;
+      max-width: 1000px;
     }
     .timeline-line {
       position: absolute;
@@ -207,9 +207,9 @@
     }
     .coursework-section {
       width: 100%;
-      max-width: 900px;
+      max-width: 1400px;
       margin: 2.5rem auto 2rem auto;
-      padding: 0 1rem;
+      padding: 0 2rem;
     }
     .coursework-grid {
       display: flex;
@@ -221,8 +221,8 @@
     }
     .coursework-col {
       flex: 1 1 0;
-      min-width: 200px;
-      max-width: 300px;
+      min-width: 350px;
+      max-width: 450px;
       background: transparent;
       color: #e0e0e0;
     }
@@ -243,10 +243,15 @@
       margin-bottom: 0.4em;
       font-size: 1em;
       color: #cfd8dc;
+      white-space: nowrap;
+    }
+    @media (max-width: 1400px) {
+      .coursework-section { max-width: 98vw; }
     }
     @media (max-width: 900px) {
       .coursework-grid { flex-direction: column; gap: 1.5rem; align-items: stretch; }
-      .coursework-col { max-width: 100%; }
+      .coursework-col { max-width: 100%; min-width: auto; }
+      .coursework-col li { white-space: normal; }
       .timeline-item {
         grid-template-columns: 1fr;
         text-align: center;
@@ -397,40 +402,46 @@
       <h3 style="text-align:center; color:#fff; font-size:1.4rem; font-weight:700; margin-bottom:1.5rem; letter-spacing:1px;">Relevant Coursework</h3>
       <div class="coursework-grid">
         <div class="coursework-col">
-          <div class="coursework-title">ML & AI</div>
+          <div class="coursework-title"><i class="fas fa-server" style="color: #4caf50; margin-right: 0.5rem;"></i>Software Development and Systems</div>
           <ul>
-            <li>Artificial Intelligence</li>
-            <li>Machine Learning Algorithms</li>
-            <li>Deep Learning (AI)</li>
-            <li>Computer Vision</li>
-            <li>Natural Language Processing (NLP)</li>
-            <li>Statistical Methods in AI</li>
-            <li>Image Processing Algorithms</li>
+            <li><i class="fas fa-network-wired" style="color: #8bc34a; margin-right: 0.5rem;"></i>Distributed Systems</li>
+            <li><i class="fas fa-database" style="color: #2196f3; margin-right: 0.5rem;"></i>Database Systems</li>
+            <li><i class="fas fa-sitemap" style="color: #ff9800; margin-right: 0.5rem;"></i>Data Structures</li>
+            <li><i class="fas fa-project-diagram" style="color: #9c27b0; margin-right: 0.5rem;"></i>Analysis of Algorithms</li>
+            <li><i class="fas fa-cloud" style="color: #ffeb3b; margin-right: 0.5rem;"></i>Cloud Computing</li>
+            <li><i class="fas fa-microchip" style="color: #e91e63; margin-right: 0.5rem;"></i>Computer Architecture and Design</li>
+            <li><i class="fas fa-code" style="color: #4caf50; margin-right: 0.5rem;"></i>Complier Design</li>
+            <li><i class="fas fa-desktop" style="color: #00bcd4; margin-right: 0.5rem;"></i>Operating Systems</li>
+            <li><i class="fas fa-wifi" style="color: #ff5722; margin-right: 0.5rem;"></i>Computer Networks</li>
+            <li><i class="fas fa-cubes" style="color: #795548; margin-right: 0.5rem;"></i>Object Oriented Analysis and Design</li>
+            <li><i class="fas fa-chart-bar" style="color: #607d8b; margin-right: 0.5rem;"></i>Big data</li>
+            <li><i class="fas fa-tachometer-alt" style="color: #3f51b5; margin-right: 0.5rem;"></i>Performance Engineering</li>
+          </ul>
+        </div>
+        
+        <div class="coursework-col">
+          <div class="coursework-title"><i class="fas fa-robot" style="color: #00bcd4; margin-right: 0.5rem;"></i>Machine Learning and  AI</div>
+          <ul>
+            <li><i class="fas fa-brain" style="color: #e91e63; margin-right: 0.5rem;"></i>Artificial Intelligence</li>
+            <li><i class="fas fa-robot" style="color: #00bcd4; margin-right: 0.5rem;"></i>Machine Intelligence</li>
+            <li><i class="fas fa-cogs" style="color: #4caf50; margin-right: 0.5rem;"></i>Machine Learning Algorithms</li>
+            <li><i class="fas fa-layer-group" style="color: #9c27b0; margin-right: 0.5rem;"></i>Deep Learning (AI)</li>
+            <li><i class="fas fa-eye" style="color: #ff9800; margin-right: 0.5rem;"></i>Computer Vision</li>
+            <li><i class="fas fa-language" style="color: #e91e63; margin-right: 0.5rem;"></i>Natural Language Processing (NLP)</li>
+            <li><i class="fas fa-chart-line" style="color: #2196f3; margin-right: 0.5rem;"></i>Statistical Methods in AI</li>
+            <li><i class="fas fa-image" style="color: #ff5722; margin-right: 0.5rem;"></i>Image Processing Algorithms</li>
           </ul>
         </div>
         <div class="coursework-col">
-          <div class="coursework-title">Quant & Math</div>
+          <div class="coursework-title"><i class="fas fa-calculator" style="color: #ff9800; margin-right: 0.5rem;"></i>Quant & Math</div>
           <ul>
-            <li>Probability & Statistics</li>
-            <li>Stochastic Calculus</li>
-            <li>Optimization</li>
-            <li>Linear Algebra</li>
-            <li>Differential Equations</li>
-            <li>Time-Series Analysis</li>
-          </ul>
-        </div>
-        <div class="coursework-col">
-          <div class="coursework-title">Dev & Systems</div>
-          <ul>
-            <li>Data Structures</li>
-            <li>Design & Analysis of Algorithms</li>
-            <li>Linear Algebra</li>
-            <li>Operating Systems</li>
-            <li>Computer Networks</li>
-            <li>Machine Intelligence</li>
-            <li>Object Oriented Analysis and Design</li>
-            <li>Big data</li>
-            <li>Computer Network Security</li>
+            <li><i class="fas fa-dice" style="color: #4caf50; margin-right: 0.5rem;"></i>Probability & Statistics</li>
+            <li><i class="fas fa-vector-square" style="color: #2196f3; margin-right: 0.5rem;"></i>Linear Algebra</li>
+            <li><i class="fas fa-function" style="color: #9c27b0; margin-right: 0.5rem;"></i>Stochastic Calculus</li>
+            <li><i class="fas fa-search" style="color: #ff9800; margin-right: 0.5rem;"></i>Optimization</li>
+            <li><i class="fas fa-vector-square" style="color: #2196f3; margin-right: 0.5rem;"></i>Linear Algebra</li>
+            <li><i class="fas fa-infinity" style="color: #e91e63; margin-right: 0.5rem;"></i>Differential Equations</li>
+            <li><i class="fas fa-chart-area" style="color: #00bcd4; margin-right: 0.5rem;"></i>Time-Series Analysis</li>
           </ul>
         </div>
       </div>
