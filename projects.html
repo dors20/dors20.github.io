@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Mahesh Dorsala</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
@@ -24,7 +24,7 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      max-width: 700px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     .header-bar {
@@ -103,6 +103,154 @@
       margin-bottom: 2rem;
       width: 100%;
     }
+    
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1000px;
+      margin: 2rem auto;
+      justify-content: center;
+    }
+    
+    .project-tile {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    
+    .project-tile:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 152, 0, 0.2);
+      border-color: #ff9800;
+    }
+    
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0;
+      flex: 1;
+      line-height: 1.3;
+    }
+    
+    .project-status {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    
+    .private-badge {
+      background: #ff6b6b;
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+    
+    .fork-badge {
+      background: #4ecdc4;
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+    
+    .project-description {
+      color: #b0b0b0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+      min-height: 2.8rem;
+    }
+    
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .project-domain {
+      background: #ff9800;
+      color: #000;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .project-language {
+      color: #888;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .tech-tag {
+      background: #333;
+      color: #cfd8dc;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .project-link {
+      color: #ff9800;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+    }
+    
+    .project-link:hover {
+      color: #ffb74d;
+    }
+    
+
+    
+    /* Domain colors */
+    .domain-ml { background: #e91e63; }
+    .domain-systems { background: #2196f3; }
+    .domain-web { background: #4caf50; }
+    .domain-data { background: #ff9800; }
+    .domain-mobile { background: #9c27b0; }
+    .domain-ai { background: #f44336; }
+    .domain-devops { background: #607d8b; }
+    .domain-other { background: #795548; }
+    
     /* Hamburger styles */
     .hamburger {
       display: none;
@@ -165,12 +313,18 @@
       .hamburger {
         display: flex;
       }
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
     }
     @media (max-width: 700px) {
       .main-title { font-size: 1.5rem; }
       .nav-bar { gap: 1rem; font-size: 1rem; }
       .page-container { padding: 1.5rem; }
       .section-content { padding: 1rem 0.5rem; }
+      .project-tile { padding: 1rem; }
+      .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -205,11 +359,390 @@
     </div>
     <div class="main-title">Projects</div>
     <div class="section-content">
-      <ul>
-        <li><a href="https://github.com/dors20/YACS-Yet-Another-Centralised-Scheduler-BigData" target="_blank">YACS: Yet Another Centralised Scheduler for Big Data</a></li>
-        <li><a href="https://github.com/dors20/Transformers-Assign" target="_blank">Transformers Assignment</a></li>
-        <li>More coming soon...</li>
-      </ul>
+      <div class="projects-grid">
+        <!-- SYSTEMS PROJECTS FIRST -->
+        
+        <!-- YACS Project -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">YACS: Yet Another Centralized Scheduler</h3>
+          </div>
+          
+          <div class="project-description">
+            Yet Another Centralized Scheduler for Big Data processing and resource management. A distributed scheduling system designed to handle large-scale data processing workloads efficiently.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-systems">Systems</span>
+            <span class="project-language">Python</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Big Data</span>
+            <span class="tech-tag">Distributed Systems</span>
+            <span class="tech-tag">Scheduling</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/YACS-Yet-Another-Centralised-Scheduler-BigData" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Mini Go Compiler -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">Mini Go Compiler</h3>
+          </div>
+          
+          <div class="project-description">
+            Mini compiler implementation demonstrating language parsing and compilation techniques. Built using Yacc for parsing and demonstrates compiler design principles.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-systems">Systems</span>
+            <span class="project-language">Yacc</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Yacc</span>
+            <span class="tech-tag">Compiler Design</span>
+            <span class="tech-tag">Parsing</span>
+            <span class="tech-tag">Go</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/Mini-Go-Compiler" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Escape Room Game -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">Escape Room Game</h3>
+          </div>
+          
+          <div class="project-description">
+            Interactive escape room game implementation in C++. Features puzzle-solving mechanics, game logic, and object-oriented programming principles.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-systems">Systems</span>
+            <span class="project-language">C++</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">Game Development</span>
+            <span class="tech-tag">OOP</span>
+            <span class="tech-tag">Algorithms</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/EscapeRoom" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- FFT Stencils -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">FFT Stencils</h3>
+          </div>
+          
+          <div class="project-description">
+            High-performance computing implementation of Fast Fourier Transform (FFT) stencils for scientific computing applications. Optimized C and C++ implementation for efficient numerical computations and signal processing.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-systems">Systems</span>
+            <span class="project-language">C/C++</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">C</span>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">FFT</span>
+            <span class="tech-tag">HPC</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/TEAlab/FFTStencils" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- NHLS -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">NHLS</h3>
+          </div>
+          
+          <div class="project-description">
+            Non-homogeneous Linear Stencils (NHLS) - Fast Fourier Transform acceleration for spatially and temporally inhomogeneous stencil computations. High-performance Rust implementation for parallel algorithms and scientific computing applications.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-systems">Systems</span>
+            <span class="project-language">Rust</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Rust</span>
+            <span class="tech-tag">FFT</span>
+            <span class="tech-tag">Parallel Algorithms</span>
+            <span class="tech-tag">Scientific Computing</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/TEALab-org/nhls" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- AI/ML PROJECTS NEXT -->
+        
+        <!-- YoYoMind -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">YoYoMind</h3>
+          </div>
+          
+          <div class="project-description">
+            YoYoMind is a framework designed to quantify and analyze the dynamics of self-belief in individuals with Borderline Personality Disorder using language-based signals. By leveraging transformer-based NLP models, YoYoMind computes interpretable metrics across thousands of social media posts to reveal patterns of emotional instability, contradiction, sentiment, and identity disturbance.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-ai">ML/AI</span>
+            <span class="project-language">Python</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">NLP</span>
+            <span class="tech-tag">Machine Learning</span>
+            <span class="tech-tag">Mental Health</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/YoYoMind" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Neural Network from Scratch -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">Artificial Neural Network from Scratch</h3>
+          </div>
+          
+          <div class="project-description">
+            Implementation of artificial neural networks from scratch for educational purposes. Demonstrates the fundamentals of deep learning without using high-level frameworks.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-ai">ML/AI</span>
+            <span class="project-language">Python</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">NumPy</span>
+            <span class="tech-tag">Neural Networks</span>
+            <span class="tech-tag">Deep Learning</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/Artificial-neural-network-from-Scratch" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- RNN from Scratch -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">RNN from Scratch</h3>
+          </div>
+          
+          <div class="project-description">
+            Recurrent Neural Network implementation from scratch with detailed explanations. Covers the mathematical foundations and practical implementation of RNNs.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-ai">ML/AI</span>
+            <span class="project-language">Python</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">NumPy</span>
+            <span class="tech-tag">RNN</span>
+            <span class="tech-tag">Jupyter</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/RNN-from-scratch" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Handwritten Digit Recognition -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">Handwritten Digit Recognition</h3>
+          </div>
+          
+          <div class="project-description">
+            Convolutional Neural Network for handwritten digit recognition using MNIST dataset. Implements CNN architecture for computer vision tasks.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-ai">ML/AI</span>
+            <span class="project-language">Python</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">TensorFlow</span>
+            <span class="tech-tag">CNN</span>
+            <span class="tech-tag">Computer Vision</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/Handwritten-Digit-Recognition" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- DATA SCIENCE PROJECTS -->
+        
+        <!-- NBA Salary Prediction -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">NBA Player Salary Prediction</h3>
+          </div>
+          
+          <div class="project-description">
+            Data analysis and machine learning project for NBA player statistics and salary prediction. Performs comprehensive analysis of NBA 2018 season stats using regression models.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-data">Data Science</span>
+            <span class="project-language">Python</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">Scikit-learn</span>
+            <span class="tech-tag">Regression</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/NBA-2018-Player-Salary-Prediction" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- NYC Airbnb Analysis -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">NYC Airbnb Data Analysis</h3>
+          </div>
+          
+          <div class="project-description">
+            Comprehensive data analysis of New York Airbnb listings with statistical insights. Includes exploratory data analysis, visualization, and predictive modeling.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-data">Data Science</span>
+            <span class="project-language">Python</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">Matplotlib</span>
+            <span class="tech-tag">Seaborn</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/NewYork-AirBnb-Project-with-paper" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Flight Data Analysis -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">Flight Data Statistical Analysis</h3>
+          </div>
+          
+          <div class="project-description">
+            Statistical analysis of flight data with hypothesis testing, fare prediction, and time series forecasting. Comprehensive data science project with multiple analytical approaches.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-data">Data Science</span>
+            <span class="project-language">Python</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Statistics</span>
+            <span class="tech-tag">Time Series</span>
+            <span class="tech-tag">Hypothesis Testing</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/Statistical-Analysis-of-Flight-Data-Hypothesis-Testing-Fare-Prediction-and-Time-Series-Forecasting" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Stack Overflow Survey Analysis -->
+        <div class="project-tile">
+          <div class="project-header">
+            <h3 class="project-title">Stack Overflow Survey Analysis</h3>
+          </div>
+          
+          <div class="project-description">
+            Data analysis of Stack Overflow developer survey with insights and visualizations. Explores developer trends, technologies, and career patterns.
+          </div>
+          
+          <div class="project-meta">
+            <span class="project-domain domain-data">Data Science</span>
+            <span class="project-language">Python</span>
+          </div>
+          
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">Visualization</span>
+            <span class="tech-tag">Survey Analysis</span>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://github.com/dors20/Developer-Insights-An-Analysis-of-the-Stack-Overflow-Survey" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="social-icons">
       <a class="social-icon" href="https://www.linkedin.com/in/mahesh-dorsala-652790195/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -218,6 +751,7 @@
     </div>
   </div>
 <script>
+  // Mobile navigation functionality
   const hamburger = document.getElementById('hamburger-menu');
   const mobileNav = document.getElementById('mobile-nav');
   hamburger.addEventListener('click', () => {
